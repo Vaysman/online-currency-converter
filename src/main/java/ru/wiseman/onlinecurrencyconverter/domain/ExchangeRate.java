@@ -3,10 +3,7 @@ package ru.wiseman.onlinecurrencyconverter.domain;
 import lombok.Data;
 import org.springframework.util.Assert;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -20,6 +17,7 @@ public class ExchangeRate {
     private float rate;
 
     @Column(name = "timestamp")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date timestamp;
 
     protected ExchangeRate() { }
