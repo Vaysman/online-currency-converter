@@ -5,3 +5,5 @@ spring:
   datasource:
     name: converterdb
 
+liquibase:
+  contexts: dev
