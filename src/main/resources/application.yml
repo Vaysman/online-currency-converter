@@ -2,6 +2,10 @@ spring:
   profiles:
     active:
       - h2
+  jpa:
+    hibernate:
+      ddl-auto: none
+    generate-ddl: false
 
 endpoints:
   sensitive: false
@@ -9,4 +13,3 @@ endpoints:
 management:
   security:
     enabled: false
-
