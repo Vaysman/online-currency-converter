@@ -14,4 +14,9 @@ public class ConverterController {
     public OperationDetails buy() {
         return new OperationDetails("OK", 67.89f);
     }
+
+    @GetMapping(path = "/sell", produces = MediaType.APPLICATION_JSON_VALUE)
+    public OperationDetails sell() {
+        return new OperationDetails("OK", 555.66f);
+    }
 }
