@@ -1,2 +1,2 @@
-# online-currency-converter-
+# online-currency-converter
 Demo app
