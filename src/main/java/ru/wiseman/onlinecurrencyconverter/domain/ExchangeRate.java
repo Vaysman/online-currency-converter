@@ -19,9 +19,16 @@ public class ExchangeRate {
     @Column(name = "rate")
     private float rate;
 
+    @Column(name = "timestamp")
+    private Date timestamp;
+
+    protected ExchangeRate() { }
+
     public ExchangeRate(float rate, Date timestamp) {
         Assert.isTrue(rate > 0, "Rate must be greater than 0");
+        Assert.notNull(timestamp, "Timestamp must not be empty");
 
         this.rate = rate;
+        this.timestamp = timestamp;
     }
 }
