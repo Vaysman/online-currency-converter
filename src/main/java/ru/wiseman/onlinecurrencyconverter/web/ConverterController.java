@@ -1,22 +1,26 @@
 package ru.wiseman.onlinecurrencyconverter.web;
 
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import ru.wiseman.onlinecurrencyconverter.service.ConverterService;
 import ru.wiseman.onlinecurrencyconverter.service.OperationDetails;
 
 @RestController()
 @RequestMapping("/yconverter")
+@RequiredArgsConstructor
 public class ConverterController {
+    @NonNull
+    private final ConverterService converterService;
 
     @GetMapping(path = "/buy", produces = MediaType.APPLICATION_JSON_VALUE)
-    public OperationDetails buy() {
-        return new OperationDetails("OK", 67.89f);
+    public OperationDetails buy(@RequestParam("sum") Float sum) {
+        return converterService.r2y(sum);
     }
 
     @GetMapping(path = "/sell", produces = MediaType.APPLICATION_JSON_VALUE)
-    public OperationDetails sell() {
-        return new OperationDetails("OK", 555.66f);
+    public OperationDetails sell(@RequestParam("sum") Float value) {
+        return converterService.y2r(value);
     }
 }

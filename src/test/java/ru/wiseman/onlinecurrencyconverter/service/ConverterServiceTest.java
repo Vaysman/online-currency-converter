@@ -14,12 +14,12 @@ public class ConverterServiceTest {
     }
 
     @Test
-    public void y2rWhenDataOkShouldReturnOperationDetails() throws Exception {
+    public void y2rWhenValueGraterOrEqualZeroReturnOperationDetails() throws Exception {
         assertThat(converterService.y2r(333.44f)).isEqualTo(new OperationDetails("OK", 555.66f));
     }
 
     @Test
-    public void r2yWhenDataOkShouldReturnOperationDetails() throws Exception {
+    public void r2yWhenValueGraterOrEqualZeroReturnOperationDetails() throws Exception {
         assertThat(converterService.r2y(123.45f)).isEqualTo(new OperationDetails("OK", 67.89f));
     }
 }
