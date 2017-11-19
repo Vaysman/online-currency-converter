@@ -25,4 +25,11 @@ public class ConverterControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().json("{sum: 67.89, status: 'OK'}"));
     }
+
+    @Test
+    public void sellWhenRequestSumShouldReturnNumberAndOk() throws Exception {
+        mvc.perform(get("/yconverter/sell?sum={}", "333.44").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().json("{sum: 555.66, status: 'OK'}"));
+    }
 }
