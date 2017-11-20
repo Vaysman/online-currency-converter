@@ -30,7 +30,7 @@ public class RemoteExchangeRateService {
 
     public float getRate() {
         ResponseEntity<String> response = template.getForEntity(properties.getUrl(), String.class);
-        log.info("Fetching data from back");
+        log.info("Fetching data from bank");
         Document quotes = Jsoup.parse(response.getBody());
         String rate = quotes.select("Valute[ID=R01820] > Value").text().replace(',', '.');
         log.info("JPY {} rub", rate);
