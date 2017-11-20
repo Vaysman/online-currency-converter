@@ -29,6 +29,11 @@ public class RemoteExchangeRateService {
     }
 
     public float getRate() {
-        return 0f;
+        ResponseEntity<String> response = template.getForEntity(properties.getUrl(), String.class);
+        log.info("Fetching data from back");
+        Document quotes = Jsoup.parse(response.getBody());
+        String rate = quotes.select("Valute[ID=R01820] > Value").text().replace(',', '.');
+        log.info("JPY {} rub", rate);
+        return Float.valueOf(rate);
     }
 }
