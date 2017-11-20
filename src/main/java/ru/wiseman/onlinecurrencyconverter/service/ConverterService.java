@@ -3,6 +3,7 @@ package ru.wiseman.onlinecurrencyconverter.service;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.wiseman.onlinecurrencyconverter.domain.ExchangeRate;
 
 @Service
 @RequiredArgsConstructor
@@ -11,10 +12,12 @@ public class ConverterService {
     private final ExchangeRateRepository repository;
 
     public OperationDetails r2y(float v) {
-        return new OperationDetails("OK", 67.89f);
+        ExchangeRate rate = repository.findTopByOrderByTimestampDesc();
+        return new OperationDetails("OK", v / rate.getRate());
     }
 
     public OperationDetails y2r(float v) {
-        return new OperationDetails("OK", 555.66f);
+        ExchangeRate rate = repository.findTopByOrderByTimestampDesc();
+        return new OperationDetails("OK", v * rate.getRate());
     }
 }
