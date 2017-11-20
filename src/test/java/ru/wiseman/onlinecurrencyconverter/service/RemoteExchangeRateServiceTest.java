@@ -17,7 +17,7 @@ import static org.springframework.test.web.client.match.MockRestRequestMatchers.
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 
 @RunWith(SpringRunner.class)
-@RestClientTest({ RemoteExchangeRateService.class, RemoteExchangeRateServiceProperties.class })
+@RestClientTest({RemoteExchangeRateService.class, RemoteExchangeRateServiceProperties.class})
 @TestPropertySource(properties = "rate.service.url=http://example.com/scripts/XML_daily.asp")
 public class RemoteExchangeRateServiceTest {
     @Rule

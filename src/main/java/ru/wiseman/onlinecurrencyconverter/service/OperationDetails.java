@@ -16,7 +16,7 @@ public class OperationDetails {
 
     private Float truncate(float sum) {
         // TODO fix this
-        String formated = String.format(Locale.US,"%.3f", sum);
+        String formated = String.format(Locale.US, "%.3f", sum);
         return Float.valueOf(formated.substring(0, formated.length() - 1));
     }
 }

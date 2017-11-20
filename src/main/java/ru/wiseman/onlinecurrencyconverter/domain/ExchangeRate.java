@@ -3,7 +3,12 @@ package ru.wiseman.onlinecurrencyconverter.domain;
 import lombok.Data;
 import org.springframework.util.Assert;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.util.Date;
 
 @Entity
@@ -20,7 +25,8 @@ public class ExchangeRate {
     @Temporal(TemporalType.TIMESTAMP)
     private Date timestamp;
 
-    protected ExchangeRate() { }
+    protected ExchangeRate() {
+    }
 
     public ExchangeRate(float rate, Date timestamp) {
         Assert.isTrue(rate > 0, "Rate must be greater than 0");
