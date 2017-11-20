@@ -34,6 +34,6 @@ public class RemoteExchangeRateService {
         Document quotes = Jsoup.parse(response.getBody());
         String rate = quotes.select("Valute[ID=R01820] > Value").text().replace(',', '.');
         log.info("JPY {} rub", rate);
-        return Float.valueOf(rate);
+        return Float.valueOf(rate) / 100.0f;
     }
 }
