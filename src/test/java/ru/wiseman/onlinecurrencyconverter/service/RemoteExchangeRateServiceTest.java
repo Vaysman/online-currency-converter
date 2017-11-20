@@ -33,7 +33,7 @@ public class RemoteExchangeRateServiceTest {
     public void getRateWhenServerIsUpShouldReturnRate() throws Exception {
         server.expect(requestTo("http://example.com/scripts/XML_daily.asp"))
                 .andRespond(withSuccess(getClassPathResource("xml_daily_asp.xml"), MediaType.APPLICATION_XML));
-        assertThat(service.getRate()).isEqualTo(52.9643f);
+        assertThat(service.getRate()).isEqualTo(0.529643f);
     }
 
     private ClassPathResource getClassPathResource(String path) {
