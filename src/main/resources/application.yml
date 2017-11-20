@@ -13,3 +13,7 @@ endpoints:
 management:
   security:
     enabled: false
+
+rate:
+  service:
+    url: http://www.cbr.ru/scripts/XML_daily.asp
