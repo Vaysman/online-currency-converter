@@ -2,6 +2,8 @@ package ru.wiseman.onlinecurrencyconverter.service;
 
 import lombok.Value;
 
+import java.util.Locale;
+
 @Value
 public class OperationDetails {
     String status;
@@ -13,6 +15,8 @@ public class OperationDetails {
     }
 
     private Float truncate(float sum) {
-        return (float) (Math.floor(sum * 100.0) / 100.0);
+        // TODO fix this
+        String formated = String.format(Locale.US,"%.3f", sum);
+        return Float.valueOf(formated.substring(0, formated.length() - 1));
     }
 }
